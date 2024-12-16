@@ -1,28 +1,27 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
-# Define the start command handler
-def start(update: Update, context: CallbackContext) -> None:
-    # Send a "Hi" message to the user
-    update.message.reply_text('Hi!')
+# Replace 'your_token_here' with your bot token
+BOT_TOKEN = '6948348321:AAH5iX8Sk_uYHkPqpWfzwmft32UVchlAeY4'
+
+# Function that sends "Hi" when /start is triggered
+def start(update: Update, context: CallbackContext):
+    update.message.reply_text("Hi")
 
 def main():
-    # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-    token = '6948348321:AAH5iX8Sk_uYHkPqpWfzwmft32UVchlAeY4'
-    
-    # Create the Updater and pass the bot's token
-    updater = Updater(token)
+    # Initialize the Updater with your bot's token
+    updater = Updater(token=BOT_TOKEN)
 
     # Get the dispatcher to register handlers
-    dispatcher = updater.dispatcher
+    dp = updater.dispatcher
 
     # Register the /start command handler
-    dispatcher.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler("start", start))
 
-    # Start the Bot
+    # Start the bot using long polling
     updater.start_polling()
 
-    # Run the bot until you send a signal to stop
+    # Keep the bot running until interrupted
     updater.idle()
 
 if __name__ == '__main__':
