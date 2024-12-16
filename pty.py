@@ -8,7 +8,7 @@ def start(update: Update, context: CallbackContext) -> None:
 
 def main():
     # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-    token = 'YOUR_BOT_TOKEN'
+    token = '6948348321:AAH5iX8Sk_uYHkPqpWfzwmft32UVchlAeY4'
     
     # Create the Updater and pass the bot's token
     updater = Updater(token)
